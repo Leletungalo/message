@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import decode from "jwt-decode";
+import MessageContext from "../../context/massage/MessageContext";
 import { IconButton, TextField, makeStyles } from "@material-ui/core";
 import { SendRounded } from "@material-ui/icons";
 
 const SendMessages = ({ selectedID }) => {
+	const { getDisplayedList } = useContext(MessageContext);
 	const classes = useStyles();
 	const [message, setMessage] = useState("");
 	const { _id } = decode(localStorage.getItem("token"));
-
 	const sendMessage = async () => {
 		if (message) {
 			try {
@@ -35,12 +36,12 @@ const SendMessages = ({ selectedID }) => {
 				const msg = await res.json();
 				setMessage("");
 				console.log(msg);
+				getDisplayedList(_id, selectedID);
 			} catch (error) {
 				console.error("sendMessenge: ", error);
 			}
 		}
 	};
-
 	return (
 		<div className={classes.root}>
 			<TextField

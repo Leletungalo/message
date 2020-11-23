@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import decode from "jwt-decode";
 import ConvesationItems from "./ConvesationItems";
-import profile from "../../images/akho-min.jpeg";
-const DisplayConvensation = ({ list }) => {
-	const { _id } = decode(localStorage.getItem("token"));
+import profile from "../../images/profile-min.JPG";
+import MessageContext from "../../context/massage/MessageContext";
 
+const DisplayConvensation = () => {
+	const { displayList } = useContext(MessageContext);
+	const { _id } = decode(localStorage.getItem("token"));
 	return (
 		<div className="display-convensation">
-			{list &&
-				list.map(ele => {
+			{displayList &&
+				displayList.map(ele => {
 					let right = false;
 					if (ele.sender._id === _id) {
 						right = true;

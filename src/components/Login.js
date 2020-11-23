@@ -1,8 +1,6 @@
-import React, { useContext, useState } from "react";
-import AuthContext from "../context/auth/AuthContext";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 const Login = () => {
-	const { setUser } = useContext(AuthContext);
 	const [logIn, setlogIn] = useState(false);
 	const login = async e => {
 		e.preventDefault();
@@ -46,3 +44,4 @@ const Login = () => {
 };
 
 export default Login;
+/*eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmIxMDA2YjIzZDI2NDAwMTcyMGQ5ZWQiLCJlbWFpbCI6Im54aW54dTk3QGdtYWlsLmNvbSIsImlhdCI6MTYwNjEyNjY5MiwiZXhwIjoxNjA2MTMwMjkyfQ.LUBtLqJDgsOArSAYgFESjKNlmBT0P9B2mHdyrraCLE8 */

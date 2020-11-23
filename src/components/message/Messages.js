@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import decode from "jwt-decode";
 import MessageItems from "./MessageItems";
-import profile from "../../images/akho-min.jpeg";
+import profile from "../../images/profile-min.JPG";
 import "./Message.css";
 import DisplayConvensation from "./DisplayConvensation";
 import SendMessages from "./SendMessages";
@@ -52,6 +52,7 @@ const Messages = () => {
 				const temp = [];
 				temp.push(lele);
 				temp.push(nxinxi);
+				console.log(temp);
 				setReceiver(temp);
 			} catch (error) {
 				console.error(error);
@@ -68,10 +69,16 @@ const Messages = () => {
 			<div className="message-list">
 				{receiver &&
 					receiver.map(element => {
-						console.log(element);
+						let name = "";
+						if (element[0].receiver._id !== _id) {
+							name = element[0].receiver.name;
+						}
+						if (element[0].sender._id !== _id) {
+							name = element[0].sender.name;
+						}
 						return (
 							<MessageItems
-								name="leletu ngalo"
+								name={name}
 								data={element}
 								setList={setList}
 								src={profile}
