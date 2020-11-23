@@ -1,0 +1,26 @@
+.home {
+	display: flex;
+	background-color: grey;
+}
+
+.home-aside {
+	background-color: blue;
+	width: 20%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.aside-button {
+	font-size: 1rem;
+	padding: 1em;
+	width: 100%;
+	margin: 0.5em 0;
+}
+
+.right {
+	width: 80%;
+	background-color: white;
+}
